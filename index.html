@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>90s Song Dedication</title>
+  <style>
+    body {
+      background-color: #ffcc00;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #0000ff;
+      text-align: center;
+    }
+    h1 {
+      text-shadow: 2px 2px #ff0000;
+    }
+    form {
+      background-color: #00ff00;
+      border: 3px dashed #ff00ff;
+      padding: 20px;
+      display: inline-block;
+      margin-top: 50px;
+    }
+    input, textarea {
+      display: block;
+      margin: 10px auto;
+      width: 80%;
+    }
+    input[type="submit"] {
+      background-color: #ff0000;
+      color: #ffffff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+  <!-- <script src="app.js"></script> -->
+</head>
+<body>
+  <h1>Dedicate a Song!</h1>
+  <form action="#" method="post">
+    <label for="title">Song Title:</label>
+    <input type="text" id="title" name="title" required>
+    
+    <label for="artist">Artist:</label>
+    <input type="text" id="artist" name="artist" required>
+    
+    <label for="name">Your Name:</label>
+    <input type="text" id="name" name="name" required>
+    
+    <label for="dedication">Dedication:</label>
+    <textarea id="dedication" name="dedication" rows="4" required></textarea>
+    
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
