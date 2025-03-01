@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>90s Song Dedication</title>
+  <title>MarguaxAndCaseyAreGreat!</title>
   <style>
     body {
       background-color: #ffcc00;
@@ -23,6 +23,10 @@
     }
     input, textarea {
       display: block;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
       margin: 10px auto;
       width: 80%;
     }
@@ -37,21 +41,34 @@
   <!-- <script src="app.js"></script> -->
 </head>
 <body>
-  <h1>Dedicate a Song!</h1>
-  <form action="#" method="post">
-    <label for="title">Song Title:</label>
-    <input type="text" id="title" name="title" required>
-    
-    <label for="artist">Artist:</label>
-    <input type="text" id="artist" name="artist" required>
-    
-    <label for="name">Your Name:</label>
-    <input type="text" id="name" name="name" required>
-    
-    <label for="dedication">Dedication:</label>
-    <textarea id="dedication" name="dedication" rows="4" required></textarea>
-    
-    <input type="submit" value="Submit">
-  </form>
+  <header>
+    <h1 class="title">Marguax and Casey are getting Married!</h1>
+    <div class="subtitle">
+      <p>Join us in celebrating these cool cats, dedicate a song to the happy couple. Your submission will be a part of the Mccoy Mixtape, and could even be featured at the wedding. Yay!</p>
+    </div>
+  </header>
+  <main>
+    <form action="#" method="post">
+      <fieldset>
+        <legend>Dedicate a Song</legend>
+        <label for="title">Song Title:</label>
+        <input type="text" id="title" name="title" required>
+      
+        <label for="artist">Artist:</label>
+        <input type="text" id="artist" name="artist" required>
+      
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+      
+        <label for="dedication">Dedication:</label>
+        <textarea id="dedication" name="dedication" rows="4" required></textarea>
+      
+        <input type="submit" value="Submit">
+      </fieldset>
+    </form>
+  </main>
+  <footer>
+    <p>Do you feel the love? visit <a href="https://jacobknaack.me" target="_blank">jacobknaack.me</a> for more information.</p>
+  </footer>
 </body>
 </html>
