@@ -10,6 +10,10 @@ h1, p, label, fieldset {
   font-family: 'Comic Neue', cursive, sans-serif, Arial, Helvetica;
 }
 
+fieldset {
+  font-size: 18px;
+}
+
 h1 {
   text-shadow: 2px 2px #D8659C;
   text-align: center;
@@ -53,6 +57,23 @@ input[type="submit"] {
   width: 100px;
 }
 
+@keyframes spin {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+.heart {
+  display: inline-block
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
 @media (max-width: 450px) {
   form {
     width: calc(100% - 40px);
@@ -68,12 +89,6 @@ input[type="submit"] {
 
   h1 {
     font-size: 24px;
-  }
-
-  p,
-  label,
-  fieldset {
-    font-size: 14px;
   }
 
   input,
