@@ -9,14 +9,26 @@ h1, p, label, fieldset {
   color: #635CE9;
   font-family: 'Comic Neue', cursive, sans-serif, Arial, Helvetica;
 }
-
 fieldset {
   font-size: 18px;
+  border: 3px solid yellow;
+  border-style: dashed;
+  border-image: linear-gradient(to right, yellow 33%, transparent 33%) 1;
 }
 
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 h1 {
   text-shadow: 2px 2px #D8659C;
   text-align: center;
+}
+legend {
+  text-shadow: 2px 2px #D8659C;
+  font-size: 20px;
 }
 
 main {
@@ -29,21 +41,40 @@ main {
 form {
   background-color: #D4ABFE;
   border: 3px dashed #ff00ff;
+  border-radius: 3px;
   padding: 20px;
   display: inline-block;
   margin: 50px auto 0 auto;
   width: 400px;
 }
+label {
+  text-align: left;
+  width: 80%;
+  margin: 0 auto;
+}
+form section {
+  display: flex;
+  flex-direction: column;
+}
 
+.subtitle {
+  width: 900px;
+  margin: 0 auto;
+}
 input,
 textarea {
   display: block;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  padding: 2px;
+  border: 2px solid #000;
+  border-radius: 0;
   box-sizing: border-box;
   margin: 10px auto;
   width: 80%;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 14px;
+  background-color: #C0C0C0;
+  color: #000;
+  box-shadow: 1px 1px 0 #fff inset, -1px -1px 0 #808080 inset;
 }
 input[type="submit"] {
   background-color: #C0C0C0;
@@ -67,7 +98,9 @@ input[type="submit"] {
 }
 
 .heart {
-  display: inline-block
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 125%;;
 }
 
 .spin {
@@ -100,5 +133,11 @@ input[type="submit"] {
   input[type="submit"] {
     width: 100%;
     padding: 10px;
+  }
+}
+
+@media (max-width: 900px) {
+  .subtitle {
+    width: 100%;
   }
 }
