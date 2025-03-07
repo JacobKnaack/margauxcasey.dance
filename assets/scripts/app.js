@@ -1,67 +1,42 @@
 'use strict';
-const apiKeyUrl = null;
-const songRepositoryUrl = null;
-let API_KEY = null;
+const baseUrl = 'https://nmuwl0ceod.execute-api.us-west-2.amazonaws.com';
+const authEndpoint = '/auth';
+const formEndPoint = '/song';
+let session_token = null;
 let formEl = null;
-
-function onSuccess() {}
-function onFail() {}
-
-class Song {
-  constructor(songData) {
-    this.title = songData.title;
-    this.artist = songData.artist;
-    this.name = songData.name;
-    this.dedication = songData.dedication;
-  }
-}
+let state = new FormState();
 
 function auth () {}
-function submitSong(song, { apiKey }) {
 
-  fetch(songRepositoryUrl, {
+function submitSong(song) {
+  fetch(`${songRepositoryUrl}${songEndpoint}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `X-API-KEY ${apiKey}`,
     },
     body: JSON.stringify(song)
   })
   .then(response => response.json())
-  .then(onSuccess)
-  .catch(onFail);
+  .then(state.onSuccess)
+  .catch(state.onFail)
+  .finally(state.onComplete);
 }
 
 document.addEventListener('DOMContentLoaded', function() {
   formEl = document.getElementById('song-dedication-form');
-  fetch(apiKeyUrl, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    }
-  })
-  .then(response => response.json())
-  .then(apiKeyData => {
-    console.log('API Key:', apiKeyData.apiKey);
-    API_KEY = apiKeyData.apiKey;
 
-    form.addEventListener('submit', function(event) {
-      event.preventDefault();
+  formEl.addEventListener('submit', function(event) {
+    event.preventDefault();
 
-      const formData = new FormData(form);
-      const data = {};
+    const formData = new FormData(formEl);
+    const data = {};
 
-      formData.forEach((value, key) => {
-        data[key] = value;
-      });
-
-      submitSong(new Song(data), {
-        apiKey: API_KEY,
-      });
+    formData.forEach((value, key) => {
+      data[key] = value;
     });
-  })
-  .catch((error) => {
-    console.error('Error fetching API key:', error);
-    // Handle error - maybe show an error message to the user
+    
+    const songSubmission = new Song(data);
+    state.onSubmit(songSubmission);
+    submitSong(songSubmission);
   });
 });
