@@ -1,0 +1,19 @@
+<head>
+  <title>My Browser Tests</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mocha/mocha.css" />
+</head>
+
+<body>
+  <div id="mocha"></div>
+  <script src="https://www.chaijs.com/chai.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mocha/mocha.js"></script>
+  <script>
+    mocha.setup("bdd"); // Set up the behavior-driven development (BDD) interface
+    const expect = chai.expect; // Expose the expect assertion style
+  </script>
+  <script src="/assets/scripts/entities.js"></script>
+  <script src="/tests/entities.spec.js"></script>
+  <script>
+    mocha.run();
+  </script>
+</body>

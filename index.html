@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MarguaxAndCaseyAreGreat!</title>
   <link rel="stylesheet" href="assets/styles/main.css">
-  <script src="assets/scripts/classes.js"></script>
+  <script src="assets/scripts/entities.js"></script>
   <script src="assets/scripts/app.js"></script>
 </head>
 <body>
@@ -46,12 +46,17 @@
         <input type="submit" value="Submit">
       </fieldset>
     </form>
-    <div id="submission-success" class="submitted-true error-false">
-      <p>Thank you for submitting your song!</p>
-    </div>
-    <div id="sudmission-failure" class="submitted-false error-true">
-      <p>Unable to Submit your song.</p>
-    </div>
+    <section id="form-messages">
+      <div id="submission-pending" class="message pending">
+        <p>Submitting your song...</p>
+      </div>
+      <div id="submission-success" class="message success">
+        <p>Thank you for submitting your song!</p>
+      </div>
+      <div id="sudmission-failure" class="message failure">
+        <p>Unable to Submit your song.</p>
+      </div>
+    </section>
   </main>
   <footer>
     <p>Do you feel the love? Visit <a href="https://jacobknaack.me" target="_blank">jacobknaack.me</a> if you like what you see.</p>

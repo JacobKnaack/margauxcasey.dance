@@ -57,6 +57,16 @@ form section {
   flex-direction: column;
 }
 
+.message {
+  display: none;
+}
+
+.message.pending.active,
+.message.success.active,
+.message.failure.active {
+  display: block;
+}
+
 .subtitle {
   width: 900px;
   margin: 0 auto;
