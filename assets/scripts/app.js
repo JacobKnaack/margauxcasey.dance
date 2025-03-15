@@ -6,12 +6,12 @@ let session_token = null;
 let formEl = null;
 let state = new FormState();
 
-state.subscribe('submit', (song) => {
-  submitSong(song);
-  displayMessage('pending');
-});
+state.subscribe('submit', submitSong);
 state.subscribe('success', () => displayMessage('success'));
-state.subscribe('fail', () => displayMessage('error'));
+state.subscribe('fail', (error) => {
+  console.log("Form State submission failure: ", error);
+  displayMessage('failure');
+});
 
 function auth() { }
 function displayMessage(messageType) {
@@ -22,6 +22,7 @@ function displayMessage(messageType) {
 }
 
 function submitSong(song) {
+  displayMessage('pending');
   fetch(`${baseUrl}${songEndpoint}`, {
     method: 'POST',
     headers: {
@@ -43,13 +44,13 @@ document.addEventListener('DOMContentLoaded', function() {
     event.preventDefault();
 
     const formData = new FormData(formEl);
-    const data = {};
+    const songValues = {};
 
     formData.forEach((value, key) => {
-      data[key] = value;
+      songValues[key] = value;
     });
     
-    const songSubmission = new Song(data);
+    const songSubmission = new Song(songValues);
     state.onSubmit(songSubmission);
   });
 });
