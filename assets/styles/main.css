@@ -58,15 +58,32 @@ form section {
 }
 
 .message {
+  width: 180px;
   display: none;
+  position: fixed;
+  top: 30%;
+  left: calc(50% - 110px);
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
 }
-
+.rotate {
+  animation: rotate 1s linear infinite;
+}
 .message.pending.active,
 .message.success.active,
 .message.failure.active {
   display: block;
 }
-
+#reset-btn {
+  font-family: 'Tahoma', sans-serif;
+  font-size: 14px;
+  background-color: #C0C0C0;
+  color: #000;
+  box-shadow: 1px 1px 0 #fff inset, -1px -1px 0 #808080 inset;
+}
 .subtitle {
   width: 900px;
   margin: 0 auto;
@@ -104,6 +121,16 @@ input[type="submit"] {
   }
   to {
     transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 

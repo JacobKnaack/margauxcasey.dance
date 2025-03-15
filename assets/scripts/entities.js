@@ -70,6 +70,15 @@ class FormState {
     if (state.error) this.error = state.error;
     this.save();
   }
+  reset = () => {
+    this.set({
+      song: null,
+      request: null,
+      loading: false,
+      submitted: false,
+      error: null
+    });
+  }
   get = () => {
     return JSON.parse(window.localStorage.getItem('mcd-state'));
   }

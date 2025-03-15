@@ -4,6 +4,7 @@ const authEndpoint = '/auth';
 const songEndpoint = '/song';
 let session_token = null;
 let formEl = null;
+let resetBtnEl = null;
 let state = new FormState();
 
 state.subscribe('submit', submitSong);
@@ -12,13 +13,18 @@ state.subscribe('fail', (error) => {
   console.log("Form State submission failure: ", error);
   displayMessage('failure');
 });
+state.subscribe('complete', () => {
+  disableForm(formEl, true);
+});
 
 function auth() { }
 function displayMessage(messageType) {
   const messages = document.querySelectorAll('.message');
   messages.forEach(message => message.classList.remove('active'));
-  const messageEl = document.querySelector(`.${messageType}`);
-  messageEl.classList.toggle('active');
+  if (messageType) {
+    const messageEl = document.querySelector(`.${messageType}`);
+    messageEl.classList.toggle('active');  
+  }
 }
 
 function submitSong(song) {
@@ -36,8 +42,16 @@ function submitSong(song) {
   .finally(state.onComplete);
 }
 
+function disableForm(formElement, disabled) {
+  const formElements = formElement.elements;
+  for (let i = 0; i < formElements.length; i++) {
+    formElements[i].disabled = disabled;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
   formEl = document.getElementById('song-dedication-form');
+  resetBtnEl = document.getElementById('reset-btn');
   state.load();
 
   formEl.addEventListener('submit', function(event) {
@@ -52,5 +66,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const songSubmission = new Song(songValues);
     state.onSubmit(songSubmission);
+  });
+  resetBtnEl.addEventListener('click', function() {
+    formEl.reset();
+    state.reset();
+    displayMessage();
   });
 });
