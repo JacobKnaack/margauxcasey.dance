@@ -46,7 +46,7 @@ class FormState {
     }
     this.set({ request: payload });
   }
-  save = () =>{
+  save = () => {
     window.localStorage.setItem('mcd-state', JSON.stringify({
       song: this.song,
       request: this.request,
@@ -55,7 +55,7 @@ class FormState {
       error: this.error
     }));
   }
-  load = () =>{
+  load = () => {
     const formState = this.get();
     if (formState) this.set(formState);
   }

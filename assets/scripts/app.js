@@ -70,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
   resetBtnEl.addEventListener('click', function() {
     formEl.reset();
     state.reset();
+    disableForm(formEl, false);
     displayMessage();
   });
 });
