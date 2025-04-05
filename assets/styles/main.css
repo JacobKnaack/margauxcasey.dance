@@ -2,7 +2,35 @@
 
 body {
   background-color: #FFCBE9;
-  text-align: center;
+  text-align: center; 
+}
+
+.image {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: 300px;
+  border-radius: 10px;
+  z-index: -1;
+  transition: 1s ease-in-out;
+}
+
+#image1 {
+  background-image: url('/assets/images/gregoire_big_fuzz.jpg');
+  left: 100px;
+  background-size: cover;
+}
+#image2 {
+  background-image: url('/assets/images/gregoire_blur.jpg');
+  right: 100px;
+  background-size: cover;
+}
+
+header {
+  background-color: #FFCBE9;
+  padding: 10px 0;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 h1, p, label, fieldset {
@@ -57,6 +85,13 @@ form section {
   flex-direction: column;
 }
 
+footer {
+  background-color: #FFCBE9;
+  max-width: 900px;
+  margin: 50px auto 0 auto;
+  padding: 10px 0;
+}
+
 .message {
   width: 180px;
   display: none;
@@ -71,6 +106,15 @@ form section {
 }
 .rotate {
   animation: rotate 1s linear infinite;
+}
+.heart {
+  display: inline-block;
+  margin: 0 8px;
+  font-size: 125%;
+}
+
+.spin {
+  animation: spin 2s linear infinite;
 }
 .message.pending.active,
 .message.success.active,
@@ -132,16 +176,6 @@ input[type="submit"] {
   100% {
     transform: rotate(360deg);
   }
-}
-
-.heart {
-  display: inline-block;
-  margin: 0 8px;
-  font-size: 125%;;
-}
-
-.spin {
-  animation: spin 2s linear infinite;
 }
 
 @media (max-width: 450px) {
